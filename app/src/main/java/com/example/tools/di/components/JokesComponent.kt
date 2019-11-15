@@ -2,19 +2,19 @@ package com.example.tools.di.components
 
 import com.example.tools.MainActivity
 import com.example.tools.di.scopes.ActivityScope
-import com.example.tools.features.login.LoginFragment
+import com.example.tools.features.joke.JokesFragment
 import dagger.Subcomponent
 
 
 @ActivityScope
 @Subcomponent
-interface LoginComponent {
+interface JokesComponent {
 
     @Subcomponent.Factory
     interface Factory {
-        fun create(): LoginComponent
+        fun create(): JokesComponent
     }
 
     fun inject(activity: MainActivity)
-    fun inject(usernameFragment: LoginFragment)
+    fun inject(usernameFragment: JokesFragment)
 }

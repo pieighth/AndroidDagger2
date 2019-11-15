@@ -1,6 +1,6 @@
 package com.example.tools.di.modules
 
-import com.example.tools.features.login.LoginRepository
+import com.example.tools.features.joke.JokesRepository
 import com.example.tools.services.ApiService
 import dagger.Module
 import dagger.Provides
@@ -26,7 +26,7 @@ object NetworkModule {
     @Provides
     @Reusable
     @JvmStatic
-    fun provideLoginRepository(apiService: ApiService): LoginRepository {
-        return LoginRepository(apiService)
+    fun provideLoginRepository(apiService: ApiService): JokesRepository {
+        return JokesRepository(apiService)
     }
 }

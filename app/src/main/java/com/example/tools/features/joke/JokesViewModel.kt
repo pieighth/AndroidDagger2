@@ -1,6 +1,5 @@
-package com.example.tools.features.login
+package com.example.tools.features.joke
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.tools.models.Joke
@@ -10,11 +9,11 @@ import retrofit2.Response
 import javax.inject.Inject
 
 
-class LoginViewModel @Inject constructor(private val loginRepository: LoginRepository): ViewModel() {
+class JokesViewModel @Inject constructor(private val jokesRepository: JokesRepository): ViewModel() {
 
     var jokes = MutableLiveData<MutableList<Joke>>()
     init {
-        loginRepository.getData().enqueue(object : Callback<MutableList<Joke>> {
+        jokesRepository.getData().enqueue(object : Callback<MutableList<Joke>> {
             override fun onFailure(call: Call<MutableList<Joke>>, t: Throwable) {
 
             }

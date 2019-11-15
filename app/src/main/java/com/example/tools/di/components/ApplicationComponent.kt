@@ -12,7 +12,7 @@ import javax.inject.Singleton
 @Component(modules = [NetworkModule::class, SubcomponentsModule::class,ViewModelModule::class])
 interface ApplicationComponent {
 
-    fun loginComponent(): LoginComponent.Factory
+    fun loginComponent(): JokesComponent.Factory
 
     fun inject(activity: MainActivity)
 }

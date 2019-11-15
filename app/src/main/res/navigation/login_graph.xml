@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/login_fragment"
-        android:name="com.example.tools.features.login.LoginFragment" />
+        android:name="com.example.tools.features.joke.JokesFragment" />
 
 </navigation>

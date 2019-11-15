@@ -2,7 +2,7 @@ package com.example.tools.di.modules
 
 import androidx.lifecycle.ViewModel
 import com.example.tools.di.ViewModelKey
-import com.example.tools.features.login.LoginViewModel
+import com.example.tools.features.joke.JokesViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -11,6 +11,6 @@ import dagger.multibindings.IntoMap
 internal abstract class ViewModelModule {
     @Binds
     @IntoMap
-    @ViewModelKey(LoginViewModel::class)
-    abstract fun bindDetailsViewModel(viewModel : LoginViewModel) : ViewModel
+    @ViewModelKey(JokesViewModel::class)
+    abstract fun bindDetailsViewModel(viewModel : JokesViewModel) : ViewModel
 }
