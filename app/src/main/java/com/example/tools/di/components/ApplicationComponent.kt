@@ -9,10 +9,10 @@ import javax.inject.Singleton
 
 
 @Singleton
-@Component(modules = [NetworkModule::class, SubcomponentsModule::class,ViewModelModule::class])
+@Component(modules = [NetworkModule::class, SubcomponentsModule::class, ViewModelModule::class])
 interface ApplicationComponent {
 
-    fun loginComponent(): JokesComponent.Factory
+    fun movieComponent(): MovieComponent.Factory
 
     fun inject(activity: MainActivity)
 }

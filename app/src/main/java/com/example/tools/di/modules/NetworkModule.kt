@@ -1,32 +1,29 @@
 package com.example.tools.di.modules
 
-import com.example.tools.features.joke.JokesRepository
 import com.example.tools.services.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.jackson.JacksonConverterFactory
 
 @Module
-object NetworkModule {
+class NetworkModule {
 
-    @Provides
-    @Reusable
-    @JvmStatic
-    fun provideApiRetrofitService(): ApiService {
-
-        return Retrofit.Builder()
-            .baseUrl("https://official-joke-api.appspot.com")
-            .addConverterFactory(JacksonConverterFactory.create())
-            .build()
-            .create(ApiService::class.java)
+    companion object {
+        private const val BASE_URL = ""
     }
 
     @Provides
     @Reusable
-    @JvmStatic
-    fun provideLoginRepository(apiService: ApiService): JokesRepository {
-        return JokesRepository(apiService)
+    fun provideApiRetrofitService(): ApiService {
+
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(JacksonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .build()
+            .create(ApiService::class.java)
     }
 }

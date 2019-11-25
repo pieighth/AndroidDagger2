@@ -1,15 +1,23 @@
 package com.example.tools.models
 
 
-import com.fasterxml.jackson.annotation.JsonProperty
+import android.os.Parcelable
+import com.fasterxml.jackson.annotation.JsonIgnore
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import kotlinx.android.parcel.Parcelize
 
+@JsonIgnoreProperties(ignoreUnknown = true)
+@Parcelize
 data class Movie(
-    @JsonProperty("rating")
-    val rating: Double? = null,
-    @JsonProperty("synopsis")
-    val synopsis: String? = null,
-    @JsonProperty("title")
-    val title: String? = null,
-    @JsonProperty("year")
-    val year: Int? = null
-)
+
+    @JsonIgnore
+    var movieId: String? = null,
+//    @JsonProperty("rating")
+    var rating: Float? = null,
+//    @JsonProperty("synopsis")
+    var synopsis: String? = null,
+//    @JsonProperty("title")
+    var title: String? = null,
+//    @JsonProperty("year")
+    var year: Int? = null
+) : Parcelable
