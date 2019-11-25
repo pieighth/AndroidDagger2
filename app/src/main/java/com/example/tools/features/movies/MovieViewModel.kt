@@ -24,6 +24,8 @@ class MovieViewModel @Inject constructor(private val movieRepository: MovieRepos
 
     val movieEditing: MutableLiveData<Movie> = MutableLiveData()
 
+    val movieCreating: MutableLiveData<Movie> = MutableLiveData()
+
     init {
         loadData()
     }
@@ -86,6 +88,16 @@ class MovieViewModel @Inject constructor(private val movieRepository: MovieRepos
                 }, { error ->
                 })
         }
+    }
+
+    fun create(v: View){
+        val movie = movieCreating.value
+        if (movie?.title != null) {
+            movieRepository.createMovie(movie)
+                .subscribeOn(Schedulers.io())
+
+        }
+
     }
 
     fun cancel(v: View) {
