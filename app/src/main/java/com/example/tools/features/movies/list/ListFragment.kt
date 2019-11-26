@@ -16,6 +16,8 @@ import com.example.tools.R
 import com.example.tools.databinding.FragmentListBinding
 import com.example.tools.di.ViewModelFactory
 import com.example.tools.features.movies.MovieViewModel
+import com.example.tools.utils.MyLayoutManager
+import kotlinx.android.synthetic.main.fragment_list.*
 import javax.inject.Inject
 
 
@@ -40,7 +42,7 @@ class ListFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding =  DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false)
 
-        val linearLayoutManager = LinearLayoutManager(activity)
+        val linearLayoutManager =  LinearLayoutManager(activity)
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
@@ -49,6 +51,19 @@ class ListFragment : Fragment() {
         binding.dividerItemDecoration = DividerItemDecoration(activity,linearLayoutManager.orientation )
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        toolbar.setOnMenuItemClickListener {
+
+            if(it.itemId == R.id.m_action_save){
+                viewModel.novo(view)
+            }
+
+            true
+        }
     }
 
 }
