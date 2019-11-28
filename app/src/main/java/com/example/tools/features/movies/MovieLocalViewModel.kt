@@ -12,6 +12,7 @@ import com.example.tools.utils.hideKeyboard
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -78,6 +79,8 @@ class MovieLocalViewModel @Inject constructor(private val movieLocalRepository: 
         val movieDB = movieCreating.value
 
         movieDB?.let {
+
+            movieDB.movieId = UUID.randomUUID().toString()
             movieLocalRepository
                 .createMovie(movieDB)
                 .subscribeOn(Schedulers.computation())
