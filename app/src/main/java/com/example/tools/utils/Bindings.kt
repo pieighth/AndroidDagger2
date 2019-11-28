@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tools.features.movies.list.MovieAdapter
 import com.example.tools.models.Movie
+import com.example.tools.models.database.MovieDB
 
 @BindingAdapter("adapter")
 fun setAdapter(view: RecyclerView, adapter: RecyclerView.Adapter<RecyclerView.ViewHolder>) {
@@ -25,7 +26,8 @@ fun setDividerItemDecoration(view: RecyclerView, dividerItemDecoration: DividerI
 }
 
 @BindingAdapter("updateAdapter")
-fun updateAdapter(view: RecyclerView, movies: MutableLiveData<MutableList<Movie>>) {
+//fun updateAdapter(view: RecyclerView, movies: MutableLiveData<MutableList<Movie>>) {
+fun updateAdapter(view: RecyclerView, movies: MutableLiveData<MutableList<MovieDB>>) {
 
     movies.value?.let {
         val movieAdapter = view.adapter as MovieAdapter
